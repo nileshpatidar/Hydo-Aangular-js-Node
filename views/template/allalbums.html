@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 class="bg-info text-center"> User All Albums</h1>
+   
+    <div class="card" ng-repeat="album in albums">
+        <a href="#!Photos/{{album.AlbumId}}">
+        <div class="card-body">
+           Album Name:-  {{album.Name}}
+            <div class="card-footer">
+                UserId:- {{album.UserId}}
+            </div>
+        </div>
+        </a>
+    </div>
+</div>

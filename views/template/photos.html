@@ -1,0 +1,66 @@
+<h1 class="text-center">photos Panel</h1>
+<div class="container" >
+    <div class="row">
+        <div class="col-4">
+            <form >
+                <div class="form-group">
+                    <label for="albumId">UserId:</label>
+                    <select ng-model="Photo.User"> 
+                        <option ng-repeat="value in myuser" value="{{value.UserId}}">{{value.UserId}}     </option> 
+                    </select>
+                </div>
+                <div class="form-group">
+                        <span  ng-hide=true>  {{$scop.var = Photo.User}}</span>
+                        <label for="AlbumId">AlbumId:</label>
+                        <select ng-model="Photo.Album"> 
+                            <option ng-repeat="value in albums | filter:{UserId:$scop.var}" value="{{value.AlbumId}}">{{value.AlbumId}}     </option> 
+                        </select>
+                    </div>
+                <div class="form-group">
+                    <label for="PhotosId">photo Id:</label>
+                    <input type="text" ng-model="Photo.PhotosId" placeholder="PhotosId" class="form-control">
+                </div>
+                <div class="form-group">
+                        <label for="Name">photo Name:</label>
+                        <input type="text" ng-model="Photo.Name" placeholder="Name" class="form-control">
+                    </div>
+                <div class="form-group">
+                    <label for="image">photo :</label>
+                    <input type="file"  id="file" ng-model="Photo.image" placeholder="Name" class="form-control">
+                </div>
+                <button type="submit" ng-click="upload(Photo);" class="btn btn-primary">Submit</button>
+                <button type="submit"  ng-click="updatephoto();" class="btn btn-primary">update</button>
+            </form>
+        </div>
+        <div class="col-8">
+            <h1 class="text-center text-white bg-info">Getting photo</h1>
+            <div class="row">
+                    <div class="col-3">PHOTO Name</div>
+                    <div class="col-1">AlbumID</div>
+                <div class="col-2"></div>
+
+            </div>
+            <div class="row" ng-repeat="x in Photos">
+                <div class="col-3">
+                    <h6 class="text-bold">{{x.Name}}</h6>
+                </div>
+                <div class="col-1">
+                        <h6 class="text-bold">{{x.AlbumId}}</h6>
+                </div>
+                <div class="col-1">
+                        <a ng-click="editphotos(x.PhotosId);" class="btn-sm btn-secondary">edit</a>
+                </div>
+                <div class="col-1">
+                        <a ng-click="deletephotos(x.PhotosId);" class="btn-sm btn-danger">delete</a>
+                </div>
+               
+                <div class="col-3">
+                        <a href="#!Photos/{{x.AlbumId}}" class="btn-sm btn-warning">Show Photos</a>
+                </div>
+                <div class="col-3">
+                    <a href="#!Photos" class="btn-sm btn-warning">add Photos</a>
+            </div>
+            </div>    
+        </div>
+    </div>
+</div>

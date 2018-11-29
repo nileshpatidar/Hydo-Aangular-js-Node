@@ -1,0 +1,15 @@
+<div class="container bg-teal">
+        <h1 class="bg-info text-center"> User All Photos</h1>
+
+    <div class="row">
+        <div class="col-3"  ng-repeat="p in MyPhotos">
+                <div class="card" style="width:300px">
+                        <img class="card-img-top" ng-src="/public/uploads/{{p.image1}}" alt="Card image">
+                        <div class="card-body text-center">
+                          <h4 class="card-title">{{p.Name}}</h4>
+                          <p class="card-text">{{p.AlbumId}}</p>
+                        </div>
+                      </div>   
+        </div>
+    </div>
+</div>
